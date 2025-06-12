@@ -11,7 +11,7 @@ class Queues
     public:
     Queues()
     {
-        FORNT = -1;
+        FRONT = -1;
         REAR = -1;
     }
 
@@ -164,16 +164,12 @@ int main()
                     break;
                 }
             }
-            catch (exception &e)
+
+        } 
+        catch (exception &e)
             {
                 cout << "Check for the values entered" << endl;
-            }
-        }
-
-        
+            }  
     }
-    
-
-
 }
 

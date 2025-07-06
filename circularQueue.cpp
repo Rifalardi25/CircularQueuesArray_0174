@@ -1,24 +1,70 @@
+/**
+ * @mainpage Documentation Project Circular Queque
+ * 
+ * @section Introduction
+ * Project ini merupakan projek struktur data 
+ * menggunakan struktur data queue dengan pendekatan circular array
+ * 
+ * @section Operation
+ * Project ini memiliki beberapa operasi diantaranya:
+ * 1. Insert 
+ * 2. Delete
+ * 3. Display
+ * 
+ * @section Cara Penggunaan
+ * Berikut beberapa menu yang bisa digunakan:
+ * 1.  Endque
+ * 2. Deque
+ * 3. Display
+ * 4. Exit
+ * 
+ * @author Profile
+ *  - Nama : Muhammad Rifal Ardi Mustofa
+ *  - NIM : 20240140174
+ *  - Kelas : TI/D
+ * 
+ * @brief 
+ * @version 0.1
+ * @date 2025-06-23
+ * 
+ * @copyright Ardi@umy.ac.id (c) 2025
+ * 
+ */
 #include <iostream>
 using namespace std;
-
+/**
+ * @class Queues
+ * @brief Class ini untuk operasi lengkap queues
+ * 
+ */
 class Queues
 {
     private:
-    static const int max = 5;
-    int FRONT, REAR;
-    int queue_array[5];
+    int FRONT; ///< Variable private FRONT untuk menyimpan posisi depan antrian
+    int REAR; ///< Variable private REAR untuk menyimpan posisi belakang antrian
+    static const int max = 5; ///< Variable private max untuk menyimpan ukuran maksimum antrian
+    int queue_array[5]; ///< Variable private queue_array untuk menyimpan elemen antrian
 
     public:
+    /**
+     * @brief Construct a new Queues object
+     * Set default queues NULL 
+     * with FRONT = -1 and REAR = -1
+     */
     Queues()
     {
         FRONT = -1;
         REAR = -1;
     }
 
+    /**
+     * @brief Method untuk memasukkan data dalam antrian
+     * Data dimasukkan dalam variable queue_array
+     */
     void insert()
     {
-        int num;
-        cout << "Enter a number: ";
+        int num; ///< Variable num untuk menyimpan data yang akan diinputkan 
+        cout << "Enter a number: "; 
         cin >> num;
         cout << endl;
 
@@ -38,7 +84,7 @@ class Queues
         else
         {
             // Jika REAR berada di posisi terakhir array, kembali ke awal array
-            if (REAR = max - 1)
+            if (REAR == max - 1)
                 REAR = 0;
             else
                 REAR = REAR + 1;
@@ -46,10 +92,14 @@ class Queues
         queue_array[REAR] = num;
     }
 
+    /**
+     * @brief Method untuk menghapus data dalam antrian
+     * Data yang dihapus diambil dari variable queue_array
+     */
     void remove()
     {
         // Cek apakah antrian kosong
-        if (FRONT == -1);
+        if (FRONT == -1)
         {
             cout << "\nQueue underflow\n"; 
             return;
@@ -72,13 +122,17 @@ class Queues
         }
     }
 
+    /**
+     * @brief Method untuk menampilkan data yang diambil dari variable queue_array
+     * Data yang ditampilkan diambil dari variable queue_array
+     */
     void display()
     {
-       int FRONT_position = FRONT;
-       int REAR_position = REAR; 
+       int FRONT_position = FRONT; ///< Variable FRONT_position untuk menandakan posisi elemen ada di awal
+       int REAR_position = REAR; ///< Variable REAR_position untuk menandakan posisi elemen ada di akhir
 
        // Cek apakah antrian kosong
-        if (FRONT == -1);
+        if (FRONT == -1)
         {
             cout << "Queue is empty"; 
             return;
@@ -93,7 +147,7 @@ class Queues
             while (FRONT_position <= REAR_position)
             {
                 cout << queue_array[FRONT_position] << " ";
-                FRONT_position;
+                FRONT_position++;
             }
             cout << endl;
         }
@@ -119,10 +173,14 @@ class Queues
     }
 };
 
+/**
+ * @brief Fungsi main digunakan untuk memanggil dan menjalankan semua method yang sudah dibuat 
+ * Data diambil dari semua method
+ */
 int main()
 {
     Queues q;
-    char ch;
+    char ch; ///< Variable ch untuk membuat switch case
 
     while (true)
     {
